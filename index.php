@@ -188,43 +188,95 @@
     // $oso = null;
     // var_dump(isset($oso));
     // var_dump(empty($oso));
-    //Punto 12 Estructuras de control
-    //if
-    $num1 = 8;
-    $num2 = 5;
-    if($num1 < $num2){
-        echo "<h1>Si</h1>";
-    }else{
-        echo "<h1>No</h1>";
-    };
-    $autenticado = true;
-    $admin = false;
-    if($autenticado && $admin){
-        echo "Usuario autenticado correctamente";
-    }else{
-        echo "Usuario no autenticado, inicia sesión";
-    }
-    //if anidados
+    // //Punto 12 Estructuras de control
+    // //if
+    // $num1 = 8;
+    // $num2 = 5;
+    // if($num1 < $num2){
+    //     echo "<h1>Si</h1>";
+    // }else{
+    //     echo "<h1>No</h1>";
+    // };
+    // $autenticado = true;
+    // $admin = false;
+    // if($autenticado && $admin){
+    //     echo "Usuario autenticado correctamente";
+    // }else{
+    //     echo "Usuario no autenticado, inicia sesión";
+    // }
+    // //if anidados
+    // $cliente = [
+    //     'nombre' => 'Laura',
+    //     'saldo' => 0,
+    //     'informacion' => [
+    //         'tipo' => 'regular'
+    //     ]
+    // ];
+    // echo "<br>";
+    // if( !empty($cliente) > 0){
+    //     echo "El arreglo del cliente no esta vacio";
+    // }else{
+    //     echo "No hay saldo";
+    // };
+    // echo "<br>";
+    // //else if
+    // if( $cliente['saldo'] >0 ){
+    //     echo "El cliente tiene saldo";
+    // } else if($cliente['informacion']['tipo'] === "Premium"){
+    //     echo "El cliente es premium";
+    // } else{
+    //     echo "El cliente definido o no tiene saldo o no es premium";
+    // };
+    //Punto 12.2 Estructuras repetitivas
+    //while
+    // $i = 1;
+    // while($i < 11){
+    //     echo i . "<br>";
+    //     $i++;
+    // };
+    // echo "<br>";
+    //do while
+    $i = 100;
+    do{
+        echo $i . "<br>";
+        $i++;
+    }while($i<10);
+    //For Each
+    $clientes =array('Samuel','Daniela','Valentina');
+    foreach($cliente as $cliente):
+        echo $cliente . "<br/>";
+    endforeach;
     $cliente = [
         'nombre' => 'Laura',
-        'saldo' => 0,
-        'informacion' => [
-            'tipo' => 'regular'
+        'saldo' => 200,
+        'tipo' => 'Premium'
+    ];
+    foreach($cliente as $key =>$valor):
+        echo $key . " - " . $valor ."<br/>";
+    endforeach;
+    $producto = [
+        [
+            'nombre' => 'Terreneitor',
+            'precio' => 10000,
+            'disponible' => true
+        ],
+        [
+            'nombre' => 'Heladeria Kreisel Supra',
+            'precio' => 5000,
+            'disponible' => true
+        ],
+        [
+            'nombre' => 'Max 3 turbo',
+            'precio' => 2000,
+            'disponible' => false
         ]
     ];
-    echo "<br>";
-    if( !empty($cliente) > 0){
-        echo "El arreglo del cliente no esta vacio";
-    }else{
-        echo "No hay saldo";
-    };
-    echo "<br>";
-    //else if
-    if( $cliente['saldo'] >0 ){
-        echo "El cliente tiene saldo";
-    } else if($cliente['informacion']['tipo'] === "Premium"){
-        echo "El cliente es premium";
-    } else{
-        echo "El cliente definido o no tiene saldo o no es premium";
-    };
+    foreach($producto as $producto) { ?>
+        <li>
+            <p>Producto: </p> <?php echo $producto['nombre'];?></p>
+            <p>Precio: </p> <?php echo "$".$producto['precio'];?></p>
+            <p><?php echo ($producto['disponible']) ? 'Disponible' : 'No disponible';?></p>
+        </li>
+        <?php
+    }
 ?> 
