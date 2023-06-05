@@ -181,5 +181,50 @@
     // var_dump(array_values($ejemploKeysValues));
     // echo "<hr>";
     // //array_walk(): Aplica una función de devolución de llamada a cada elemento de un array.
-        //Punto 11 Iset and Empy
-?>
+    // //Punto 11 Iset and Empty
+    // $nombre = "Login";
+    // var_dump(isset($nombre));
+    // var_dump(empty($nombre));
+    // $oso = null;
+    // var_dump(isset($oso));
+    // var_dump(empty($oso));
+    //Punto 12 Estructuras de control
+    //if
+    $num1 = 8;
+    $num2 = 5;
+    if($num1 < $num2){
+        echo "<h1>Si</h1>";
+    }else{
+        echo "<h1>No</h1>";
+    };
+    $autenticado = true;
+    $admin = false;
+    if($autenticado && $admin){
+        echo "Usuario autenticado correctamente";
+    }else{
+        echo "Usuario no autenticado, inicia sesión";
+    }
+    //if anidados
+    $cliente = [
+        'nombre' => 'Laura',
+        'saldo' => 0,
+        'informacion' => [
+            'tipo' => 'regular'
+        ]
+    ];
+    echo "<br>";
+    if( !empty($cliente) > 0){
+        echo "El arreglo del cliente no esta vacio";
+    }else{
+        echo "No hay saldo";
+    };
+    echo "<br>";
+    //else if
+    if( $cliente['saldo'] >0 ){
+        echo "El cliente tiene saldo";
+    } else if($cliente['informacion']['tipo'] === "Premium"){
+        echo "El cliente es premium";
+    } else{
+        echo "El cliente definido o no tiene saldo o no es premium";
+    };
+?> 
