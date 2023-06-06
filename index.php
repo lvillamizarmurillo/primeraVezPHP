@@ -227,56 +227,97 @@
     // } else{
     //     echo "El cliente definido o no tiene saldo o no es premium";
     // };
-    //Punto 12.2 Estructuras repetitivas
-    //while
-    // $i = 1;
-    // while($i < 11){
-    //     echo i . "<br>";
+    // //Punto 12.2 Estructuras repetitivas
+    // //while
+    // // $i = 1;
+    // // while($i < 11){
+    // //     echo i . "<br>";
+    // //     $i++;
+    // // };
+    // // echo "<br>";
+    // //do while
+    // $i = 100;
+    // do{
+    //     echo $i . "<br>";
     //     $i++;
-    // };
-    // echo "<br>";
-    //do while
-    $i = 100;
-    do{
-        echo $i . "<br>";
-        $i++;
-    }while($i<10);
-    //For Each
-    $clientes =array('Samuel','Daniela','Valentina');
-    foreach($cliente as $cliente):
-        echo $cliente . "<br/>";
-    endforeach;
-    $cliente = [
-        'nombre' => 'Laura',
-        'saldo' => 200,
-        'tipo' => 'Premium'
-    ];
-    foreach($cliente as $key =>$valor):
-        echo $key . " - " . $valor ."<br/>";
-    endforeach;
-    $producto = [
-        [
-            'nombre' => 'Terreneitor',
-            'precio' => 10000,
-            'disponible' => true
-        ],
-        [
-            'nombre' => 'Heladeria Kreisel Supra',
-            'precio' => 5000,
-            'disponible' => true
-        ],
-        [
-            'nombre' => 'Max 3 turbo',
-            'precio' => 2000,
-            'disponible' => false
-        ]
-    ];
-    foreach($producto as $producto) { ?>
-        <li>
-            <p>Producto: </p> <?php echo $producto['nombre'];?></p>
-            <p>Precio: </p> <?php echo "$".$producto['precio'];?></p>
-            <p><?php echo ($producto['disponible']) ? 'Disponible' : 'No disponible';?></p>
-        </li>
-        <?php
+    // }while($i<10);
+    // //For Each
+    // $clientes =array('Samuel','Daniela','Valentina');
+    // foreach($cliente as $cliente):
+    //     echo $cliente . "<br/>";
+    // endforeach;
+    // $cliente = [
+    //     'nombre' => 'Laura',
+    //     'saldo' => 200,
+    //     'tipo' => 'Premium'
+    // ];
+    // foreach($cliente as $key =>$valor):
+    //     echo $key . " - " . $valor ."<br/>";
+    // endforeach;
+    // $producto = [
+    //     [
+    //         'nombre' => 'Terreneitor',
+    //         'precio' => 10000,
+    //         'disponible' => true
+    //     ],
+    //     [
+    //         'nombre' => 'Heladeria Kreisel Supra',
+    //         'precio' => 5000,
+    //         'disponible' => true
+    //     ],
+    //     [
+    //         'nombre' => 'Max 3 turbo',
+    //         'precio' => 2000,
+    //         'disponible' => false
+    //     ]
+    // ];
+    //Punto 13 Funciones
+    declare(strict_types=1);
+    function sumar(int $numero1 = 0, int $numero2){
+        echo $numero1 + $numero2;
+    };
+    sumar(10,5);
+    //retornando un valor
+    function usuarioAutenticado(bool $autenticado) : ? string{
+        if($autenticado){
+            return "El usuario esta autenticado";
+        }else{
+            return null;
+        };
+    };
+    $usuario = usuarioAutenticado(false);
+    echo $usuario;
+
+    function datos():void{
+        var_dump(func_get_args());
+        var_dump(...func_get_args());
+        // extract(...func_get_args());
+    };
+
+    datos(["nombre"=> (string) "miguel", "edad"=> (int) 23, "casa"=> (bool) true], ["bebe"=> "a"]);
+        file_get_contents();
+    $nombre = "Miguel";
+   
+    $fn = function () use($nombre):string{
+        $nombre = "Andres";
+        return $nombre;
+    };
+    echo $fn();
+    echo $nombre;
+    $fn = function():bool{
+        return true;
+    };
+
+    echo $fn();
+
+    function saludar(string $nombre): ?string{
+        if($nombre=="Miguel"){
+            return "Hola que mas";
+        }else{
+            return null;
+        }
+        
     }
-?> 
+
+    echo saludar('Pepito');
+?>
