@@ -254,70 +254,83 @@
     // foreach($cliente as $key =>$valor):
     //     echo $key . " - " . $valor ."<br/>";
     // endforeach;
-    // $producto = [
-    //     [
-    //         'nombre' => 'Terreneitor',
-    //         'precio' => 10000,
-    //         'disponible' => true
-    //     ],
-    //     [
-    //         'nombre' => 'Heladeria Kreisel Supra',
-    //         'precio' => 5000,
-    //         'disponible' => true
-    //     ],
-    //     [
-    //         'nombre' => 'Max 3 turbo',
-    //         'precio' => 2000,
-    //         'disponible' => false
-    //     ]
-    // ];
+    $producto = [
+        [
+            'nombre' => 'Terreneitor',
+            'precio' => 10000,
+            'disponible' => true
+        ],
+        [
+            'nombre' => 'Heladeria Kreisel Supra',
+            'precio' => 5000,
+            'disponible' => true
+        ],
+        [
+            'nombre' => 'Max 3 turbo',
+            'precio' => 2000,
+            'disponible' => false
+        ]
+    ];
     //Punto 13 Funciones
-    declare(strict_types=1);
-    function sumar(int $numero1 = 0, int $numero2){
-        echo $numero1 + $numero2;
-    };
-    sumar(10,5);
-    //retornando un valor
-    function usuarioAutenticado(bool $autenticado) : ? string{
-        if($autenticado){
-            return "El usuario esta autenticado";
-        }else{
-            return null;
-        };
-    };
-    $usuario = usuarioAutenticado(false);
-    echo $usuario;
+    // declare(strict_types=1);
+    // function sumar(int $numero1 = 0, int $numero2){
+    //     echo $numero1 + $numero2;
+    // };
+    // sumar(10,5);
+    // //retornando un valor
+    // function usuarioAutenticado(bool $autenticado) : ? string{
+    //     if($autenticado){
+    //         return "El usuario esta autenticado";
+    //     }else{
+    //         return null;
+    //     };
+    // };
+    // $usuario = usuarioAutenticado(false);
+    // echo $usuario;
 
-    function datos():void{
-        var_dump(func_get_args());
-        var_dump(...func_get_args());
-        // extract(...func_get_args());
-    };
+    // function datos():void{
+    //     var_dump(func_get_args());
+    //     var_dump(...func_get_args());
+    //     // extract(...func_get_args());
+    // };
 
-    datos(["nombre"=> (string) "miguel", "edad"=> (int) 23, "casa"=> (bool) true], ["bebe"=> "a"]);
-        file_get_contents();
-    $nombre = "Miguel";
+    // datos(["nombre"=> (string) "miguel", "edad"=> (int) 23, "casa"=> (bool) true], ["bebe"=> "a"]);
+    //     file_get_contents();
+    // $nombre = "Miguel";
    
-    $fn = function () use($nombre):string{
-        $nombre = "Andres";
-        return $nombre;
-    };
-    echo $fn();
-    echo $nombre;
-    $fn = function():bool{
-        return true;
-    };
+    // $fn = function () use($nombre):string{
+    //     $nombre = "Andres";
+    //     return $nombre;
+    // };
+    // echo $fn();
+    // echo $nombre;
+    // $fn = function():bool{
+    //     return true;
+    // };
 
-    echo $fn();
+    // echo $fn();
 
-    function saludar(string $nombre): ?string{
-        if($nombre=="Miguel"){
-            return "Hola que mas";
-        }else{
-            return null;
-        }
+    // function saludar(string $nombre): ?string{
+    //     if($nombre=="Miguel"){
+    //         return "Hola que mas";
+    //     }else{
+    //         return null;
+    //     }
         
-    }
+    // }
 
-    echo saludar('Pepito');
+    // echo saludar('Pepito');
+    //Punto 14 Json_encode y json_decode
+    //json decode
+    $json = '{"nombre":"Pablo","edad":16,"ciudad":"Tangamandapio"}';
+    $data = json_decode($json);
+    var_dump($data);
+    //json encode
+    var_dump($producto);
+    $json = json_encode($producto, JSON_UNESCAPED_UNICODE);
+    var_dump($json);
+    //json decode a objeto o array asociativo
+    $json = '{"nombre":"Pablo","edad":16,"ciudad":"Tangamandapio"}';
+    $data = json_decode($json); //devuelve un objeto
+    $data = json_decode($json,true); //devuelve un array asosiativo
 ?>
