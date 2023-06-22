@@ -60,28 +60,47 @@
     // echo $mercedes->getTransmision();
     // $bmx = new Bicicleta(2,1);
     // echo $bmx->getInfo();
-    //Clases abstractas
-    abstract class Animal{
-        abstract public function hacerSonido();
-    }
-    class Capibara extends Animal{
-        public function __construct(){
+    // //Clases abstractas
+    // abstract class Animal{
+    //     abstract public function hacerSonido();
+    // }
+    // class Capibara extends Animal{
+    //     public function __construct(){
 
-        }
-        public function hacerSonido(){
-            echo "Glu, glu, glu.";
-        }
-    }
-    class Camello extends Animal{
-        public function __construct(){
+    //     }
+    //     public function hacerSonido(){
+    //         echo "Glu, glu, glu.";
+    //     }
+    // }
+    // class Camello extends Animal{
+    //     public function __construct(){
 
+    //     }
+    //     public function hacerSonido(){
+    //         echo "every go to the disco.";
+    //     }
+    // }
+    // $chompiras = new Capibara();
+    // $tripaSeca = new Camello();
+    // $chompiras->hacerSonido();
+    // $tripaSeca->hacerSonido();
+    //Interfaces
+    interface Figura{
+        public function calcularArea();
+    }
+    interface Figura3D extends Figura{
+        public function calcularVolumen();
+    }
+    class Cubo implements Figura3D{
+        public function __construct(private int $lado){}
+        public function calcularArea(){
+            return 6*pow($this->lado,2);
         }
-        public function hacerSonido(){
-            echo "every go to the disco.";
+        public function calcularVolumen(){
+            return pow($this->lado,3);
         }
     }
-    $chompiras = new Capibara();
-    $tripaSeca = new Camello();
-    $chompiras->hacerSonido();
-    $tripaSeca->hacerSonido();
+    $cubo = new Cubo(5);
+    echo $cubo->calcularArea();
+    echo $cubo->calcularVolumen();
 ?>
