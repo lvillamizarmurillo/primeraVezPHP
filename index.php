@@ -131,11 +131,26 @@
     // echo $transporte->getInfo();
     // echo $bmw->getInfo();
     // echo $bmw->getColor();
-    //Autoload
+    // //Autoload
+    // function my_autoload($clase){
+    //     require __DIR__.'/clases/'.$clase.'.php';
+    // }
+    // spl_autoload_register('my_autoload');
+    // $detalles = new Detalles();
+    // $clientes = new Clientes();
+    //Namespaces
+    namespace App;
+    class Detalles{
+        public function __construct(){
+            echo "Desde la clase de Detalles.php";
+        }
+    }
+    //imagine que es otro archivo :)
+    use App\Detalles;
     function my_autoload($clase){
-        require __DIR__.'/clases/'.$clase.'.php';
+        $fileClass = explode('\\',$clase);
+        require __DIR__.'/clases/'.$fileClass[1].'.php';
     }
     spl_autoload_register('my_autoload');
     $detalles = new Detalles();
-    $clientes = new Clientes();
 ?>
